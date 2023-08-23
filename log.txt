@@ -1,0 +1,101 @@
+╭─chrisandoryan@Ryans-MacBook-Air.local ~/Documents/Projects/CTF/CTick  ‹main*›
+╰─➤  python main.py
+
+[+] Configuring 13.229.78.37 for SMK Negeri 69 Jakarta
+Checking 13.229.78.37:80
+[+] Alive
+Checking 13.229.78.37:22
+[-] Dead
+Checking 13.229.78.37:64573
+[+] Alive
+Checking 13.229.78.37:5634
+[+] Alive
+[!] Switching SSH port to 5634
+	[o] echo '9HVyo1vSWzfaOXB' | sudo -S /bin/sh -c "echo 'LKS{617dfd3c7fdfd980ed9c337970c31706}' > /home/adrian/user.txt"
+[!!!] Recv Status: 0
+[+] User flag is injected with value LKS{617dfd3c7fdfd980ed9c337970c31706}. Status: True
+[+] Pushed user flag to CTFd with value LKS{617dfd3c7fdfd980ed9c337970c31706}. Status: True
+[!] Switching SSH port to 5634
+	[o] echo '9HVyo1vSWzfaOXB' | sudo -S /bin/sh -c "echo 'LKS{b72d7f15e987fdbdf14a17392288378f}' > /root/root.txt"
+[!!!] Recv Status: 0
+[+] Root flag is injected with value LKS{b72d7f15e987fdbdf14a17392288378f}. Status: True
+[+] Pushed root flag to CTFd with value LKS{b72d7f15e987fdbdf14a17392288378f}. Status: True
+
+
+[+] Configuring 18.143.167.196 for SMKS Pembangunan Jaya YAKAPI
+Checking 18.143.167.196:80
+[-] Dead
+Checking 18.143.167.196:22
+[+] Alive
+Checking 18.143.167.196:64573
+[+] Alive
+[!] Services of SMKS Pembangunan Jaya YAKAPI are unstable. Skipping...
+
+
+[+] Configuring 54.255.18.97 for SMK TAMANSISWA 2 JAKARTA
+Checking 54.255.18.97:80
+[+] Alive
+Checking 54.255.18.97:22
+[+] Alive
+Checking 54.255.18.97:64573
+[+] Alive
+	[o] echo '9HVyo1vSWzfaOXB' | sudo -S /bin/sh -c "echo 'LKS{7ff98dcfa5a0373207aac61c4bc4ced9}' > /home/adrian/user.txt"
+[!!!] Recv Status: 0
+[+] User flag is injected with value LKS{7ff98dcfa5a0373207aac61c4bc4ced9}. Status: True
+[+] Pushed user flag to CTFd with value LKS{7ff98dcfa5a0373207aac61c4bc4ced9}. Status: True
+	[o] echo '9HVyo1vSWzfaOXB' | sudo -S /bin/sh -c "echo 'LKS{ef7b30e014b6c1550e3c4b85961c8112}' > /root/root.txt"
+[!!!] Recv Status: 0
+[+] Root flag is injected with value LKS{ef7b30e014b6c1550e3c4b85961c8112}. Status: True
+[+] Pushed root flag to CTFd with value LKS{ef7b30e014b6c1550e3c4b85961c8112}. Status: True
+
+
+[+] Configuring 13.212.84.94 for SMKN 1 Jakarta
+Checking 13.212.84.94:80
+[+] Alive
+Checking 13.212.84.94:22
+[-] Dead
+Checking 13.212.84.94:64573
+[+] Alive
+[!] Services of SMKN 1 Jakarta are unstable. Skipping...
+
+
+[+] Configuring 54.255.20.17 for SMKN 22 JAKARTA
+Checking 54.255.20.17:80
+[+] Alive
+Checking 54.255.20.17:22
+[-] Dead
+Checking 54.255.20.17:64573
+[+] Alive
+Checking 54.255.20.17:54545
+[+] Alive
+[!] Switching SSH port to 54545
+	[o] echo '9HVyo1vSWzfaOXB' | sudo -S /bin/sh -c "echo 'LKS{886ec3d9590dc996979c62dba97e264e}' > /home/adrian/user.txt"
+[!!!] Recv Status: 0
+[+] User flag is injected with value LKS{886ec3d9590dc996979c62dba97e264e}. Status: True
+[+] Pushed user flag to CTFd with value LKS{886ec3d9590dc996979c62dba97e264e}. Status: True
+[!] Switching SSH port to 54545
+	[o] echo '9HVyo1vSWzfaOXB' | sudo -S /bin/sh -c "echo 'LKS{ac09a106904dabd5d0800f71d2128af0}' > /root/root.txt"
+[!!!] Recv Status: 0
+[+] Root flag is injected with value LKS{ac09a106904dabd5d0800f71d2128af0}. Status: True
+[+] Pushed root flag to CTFd with value LKS{ac09a106904dabd5d0800f71d2128af0}. Status: True
+
+
+[+] Configuring 54.255.90.124 for SMKS Cinta Kasih Tzu Chi
+Checking 54.255.90.124:80
+[+] Alive
+Checking 54.255.90.124:22
+[-] Dead
+Checking 54.255.90.124:64573
+[+] Alive
+Checking 54.255.90.124:8975
+[+] Alive
+[!] Switching SSH port to 8975
+	[o] echo '9HVyo1vSWzfaOXB' | sudo -S /bin/sh -c "echo 'LKS{20dbceb9b1c3b91dd6e438e5108365b8}' > /home/adrian/user.txt"
+[!!!] Recv Status: 0
+[+] User flag is injected with value LKS{20dbceb9b1c3b91dd6e438e5108365b8}. Status: True
+[+] Pushed user flag to CTFd with value LKS{20dbceb9b1c3b91dd6e438e5108365b8}. Status: True
+[!] Switching SSH port to 8975
+	[o] echo '9HVyo1vSWzfaOXB' | sudo -S /bin/sh -c "echo 'LKS{f720908ab8a8088242d2686dab43df11}' > /root/root.txt"
+[!!!] Recv Status: 0
+[+] Root flag is injected with value LKS{f720908ab8a8088242d2686dab43df11}. Status: True
+[+] Pushed root flag to CTFd with value LKS{f720908ab8a8088242d2686dab43df11}. Status: True
