@@ -1,0 +1,26 @@
+[
+    {
+        "name": "SMK Negeri 69 Jakarta",
+        "ip_address": "13.229.78.37"
+    },
+    {
+        "name": "SMKS Pembangunan Jaya YAKAPI",
+        "ip_address": "18.143.117.250"
+    },
+    {
+        "name": "SMK TAMANSISWA 2 JAKARTA",
+        "ip_address" : "54.169.233.78"
+    },
+    {
+        "name": "SMKN 1 Jakarta",
+        "ip_address": "13.212.84.94"
+    },
+    {
+        "name": "SMKN 22 JAKARTA",
+        "ip_address": "54.255.20.17"
+    },
+    {
+        "name": "SMKS Cinta Kasih Tzu Chi",
+        "ip_address": "54.255.90.124"
+    }
+]
