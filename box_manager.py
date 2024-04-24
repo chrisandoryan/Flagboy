@@ -76,13 +76,12 @@ def inject_flag(target, flag, mode="ROOT"):
         
         return False
     
-def change_box_password(target, mode="ROOT"):
+
+def change_box_password(target, new_password, mode="ROOT"):
     if mode == "ROOT":
         username = "root"
-        password = secrets.token_urlsafe(12)
     else:
         username = os.environ["BOX_USER_NAME"]
-        password = secrets.token_urlsafe(12)
 
     ssh_username = os.environ["BOX_SA_NAME"]
     ssh_password = os.environ["BOX_SA_PASSWORD"]
@@ -97,12 +96,13 @@ def change_box_password(target, mode="ROOT"):
         s.set_missing_host_key_policy(paramiko.AutoAddPolicy())
         s.load_system_host_keys()
         s.connect(target['ip_address'], ssh_port, ssh_username, ssh_password)
-        command = "echo '%s' | sudo -S /bin/sh -c \"echo -e -n \"%s\n%s\" | passwd %s \"" % (ssh_password, password, password, username)
-        print(f"\t[o] {command}")
+        
+        # Change the password for 'root'
+        stdin, stdout, stderr = s.exec_command(f'echo -e "{new_password}\\n{new_password}" | passwd {username}')
+        print(stdout.read().decode())
+        print(stderr.read().decode())
 
-        stdin, stdout, stderr = s.exec_command(command)
-        for line in stdout.readlines():
-            print(f"[!!!] {line}")
+        # Close the SSH connection
         s.close()
 
         recv_status = stdout.channel.recv_exit_status()
