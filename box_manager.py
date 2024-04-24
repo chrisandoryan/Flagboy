@@ -1,8 +1,9 @@
 import os
 import socket
 import paramiko
+import secrets
 from dotenv import load_dotenv
-load_dotenv()
+load_dotenv(override=True)
 
 BASE_URL = os.environ["CTFD_URL"]
 TOKEN = os.environ["CTFD_TOKEN"]
@@ -24,8 +25,8 @@ def check_services(target, port_list):
             success_count += 1
         else:
             print("[-] Dead")
-            
-    return success_count >= 3
+    
+    return success_count > 0
 
 def get_heartbeat(target_host, target_port):
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -46,6 +47,8 @@ def inject_flag(target, flag, mode="ROOT"):
     ssh_username = os.environ["BOX_SA_NAME"]
     ssh_password = os.environ["BOX_SA_PASSWORD"]
 
+    print(ssh_username, ssh_password)
+
     ssh_port = 22
     if "ssh_port" in target:
         ssh_port = target['ssh_port']
@@ -56,7 +59,45 @@ def inject_flag(target, flag, mode="ROOT"):
         s.set_missing_host_key_policy(paramiko.AutoAddPolicy())
         s.load_system_host_keys()
         s.connect(target['ip_address'], ssh_port, ssh_username, ssh_password)
-        command = "echo '%s' | sudo -S /bin/sh -c \"echo '%s' > %s\"" % (ssh_password, flag, flag_path)
+        command = "echo '%s' | sudo -S /bin/sh -c \"echo '%s' > %s\"; chown %s:%s %s" % (ssh_password, flag, flag_path, username, username, flag_path)
+        print(f"\t[o] {command}")
+
+        stdin, stdout, stderr = s.exec_command(command)
+        for line in stdout.readlines():
+            print(f"[!!!] {line}")
+        s.close()
+
+        recv_status = stdout.channel.recv_exit_status()
+        print(f"[!!!] Recv Status: {recv_status}")
+        return recv_status >= 0
+    except Exception as e:
+        print(f"[!!!] SSH Error!")
+        print(e)
+        
+        return False
+    
+def change_box_password(target, mode="ROOT"):
+    if mode == "ROOT":
+        username = "root"
+        password = secrets.token_urlsafe(12)
+    else:
+        username = os.environ["BOX_USER_NAME"]
+        password = secrets.token_urlsafe(12)
+
+    ssh_username = os.environ["BOX_SA_NAME"]
+    ssh_password = os.environ["BOX_SA_PASSWORD"]
+
+    ssh_port = 22
+    if "ssh_port" in target:
+        ssh_port = target['ssh_port']
+        print(f"[!] Switching SSH port to {ssh_port}")
+
+    try:
+        s = paramiko.SSHClient()
+        s.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+        s.load_system_host_keys()
+        s.connect(target['ip_address'], ssh_port, ssh_username, ssh_password)
+        command = "echo '%s' | sudo -S /bin/sh -c \"echo -e -n \"%s\n%s\" | passwd %s \"" % (ssh_password, password, password, username)
         print(f"\t[o] {command}")
 
         stdin, stdout, stderr = s.exec_command(command)

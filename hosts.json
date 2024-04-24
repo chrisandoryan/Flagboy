@@ -1,29 +1,6 @@
 [
     {
-        "name": "SMK Negeri 69 Jakarta",
-        "ip_address": "13.229.78.37",
-        "ssh_port": 5634
-    },
-    {
-        "name": "SMKS Pembangunan Jaya YAKAPI",
-        "ip_address": "18.143.167.196"
-    },
-    {
-        "name": "SMK TAMANSISWA 2 JAKARTA",
-        "ip_address" : "54.255.18.97"
-    },
-    {
-        "name": "SMKN 1 Jakarta",
-        "ip_address": "13.212.84.94"
-    },
-    {
-        "name": "SMKN 22 JAKARTA",
-        "ip_address": "54.255.20.17",
-        "ssh_port": 54545
-    },
-    {
-        "name": "SMKS Cinta Kasih Tzu Chi",
-        "ip_address": "54.255.90.124",
-        "ssh_port": 8975
+        "name": "SMK Stanley",
+        "ip_address": "13.250.5.81"
     }
 ]
